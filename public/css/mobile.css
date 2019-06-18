@@ -1,0 +1,297 @@
+@media screen and (max-width: 950px) {
+  #intro {
+      display: block;
+  }
+
+  #intro > div {
+      width: 100%;
+  }
+
+  #intro .left-flex {
+    padding: 50px 0;
+  }
+
+  #intro .left-content {
+    float: none;
+    margin: auto;
+    text-align: center
+  }
+
+  #intro .right-flex {
+    padding: 50px 0 100px 0;
+  }
+
+  #intro .right-content {
+    margin: auto
+  }
+
+  .gallery-wrapper a {
+    display: block;
+    margin: 0.5px;
+    flex: 1 0 calc(33% - 1px);
+    max-width: calc(33% - 1px);
+  }
+
+  footer {
+    display: block;
+  }
+
+  footer > .left-flex {
+    width: 100%;
+  }
+
+  footer .left-content {
+    float: none;
+    margin: 30px auto;
+    display: flex;
+    width: calc(100% - 80px);
+  }
+
+  footer .left-content > div {
+    padding-left: 50px;
+  }
+
+  footer > .right-flex {
+    width: calc(100% - 80px);
+    margin: auto
+  }
+
+  footer .right-content {
+    margin-bottom: 0px;
+    padding: 20px 0;
+    margin: auto;
+  }
+
+  footer > .right-flex p {
+    margin-bottom: 0px;
+  }
+
+  footer .gutter {
+    display: none
+  }
+
+  .slick-initialized .slick-slide {
+    display: block;
+  }
+
+  .skill-block .main-img-skill {
+    width: 300px;
+  }
+
+  #experiences .slick-prev {
+    left: 20px;
+  }
+
+  #experiences .slick-next {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .resume .wrapper {
+    display: block;
+    text-align: center;
+  }
+
+  .resume .cta-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  #experiences .slick-prev:after, #experiences .slick-next:after {
+    display: none;
+  }
+
+  .experience-content {
+    display: block;
+    padding-top: 0;
+  }
+
+  .experience-hero {
+    width: 100%;
+  }
+
+  .experience-hero img {
+    width: 200px;
+    display: none;
+  }
+
+  .experience-hero p {
+    font-style: italic;
+    margin-bottom: 20px
+  }
+
+  #expertise {
+    display: block;
+    background-color: white;
+  }
+
+  #expertise .left-flex, #expertise .right-flex {
+    width: 100%;
+  }
+
+  #expertise .left-flex {
+    padding-top: 100px;
+  }
+
+  #expertise .right-flex {
+    padding-bottom: 100px;
+  }
+
+  #expertise .left-flex .left-content {
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  @keyframes goup {
+    0% {
+      transform: translateY(0);
+    }
+    15% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-1.2em);
+    }
+    35% {
+      transform: translateY(-1.2em);
+    }
+    40% {
+      transform: translateY(-2.4em);
+    }
+    55% {
+      transform: translateY(-2.4em);
+    }
+    60% {
+      transform: translateY(-3.6em);
+    }
+    75% {
+      transform: translateY(-3.6em);
+    }
+    80% {
+      transform: translateY(-4.8em);
+    }
+    95% {
+      transform: translateY(-4.8em);
+    }
+    100% {
+      transform: translateY(-6em);
+    }
+  }
+
+  #intro .right-content {
+    font-size: 0.6em;
+  }
+
+  #skills .slick-prev {
+    left: 0;
+  }
+
+  #skills .slick-next {
+    right: 0;
+  }
+
+  .portfolio-commands {
+    font-size: 0.7em;
+  }
+
+  .portfolio-commands li {
+    margin-right: 0;
+  }
+
+  footer .left-flex .left-content > div {
+    padding-left: 0;
+  }
+
+  .cta-wrapper {
+    width: 100%
+  }
+
+  .cta-wrapper a {
+    margin: auto;
+  }
+}
+
+/* Hamburger menu */
+
+.hamburger_icon {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10005;
+  padding: 10px;
+  background-color: rgb(53, 53, 53);
+  background-color: black;
+  border-radius: 50%;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media screen and (max-width: 670px) {
+  header {
+    position: fixed;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 10000;
+    background-color: rgba(53, 53, 53, 0.9);
+    transition: 0.2s;
+  }
+
+  header.hidden {
+    transform: translateX(100%);
+  }
+
+  .navbar {
+    display: block
+  }
+
+  .navbar img {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .navbar * {
+    text-align: center;
+    margin: auto;
+  }
+
+  .navbar ul {
+    display: block;
+    padding-left: 0;
+  }
+
+  .navbar ul li {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .navbar ul a {
+    color: white;
+  }
+
+  .navbar ul a::before {
+    content: "";
+  }
+}

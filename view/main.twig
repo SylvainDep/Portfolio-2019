@@ -1,0 +1,363 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="./public/css/main.css">
+    <link rel="stylesheet" href="./public/css/mobile.css">
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body id="page">
+    <div class="hamburger_icon" id="hamburger_icon">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <header id="menu" class="hidden">
+      <div class="wrapper">
+        <div class="navbar">
+          <img src="./public/img/logo.png" class="logo" alt="logo"/>
+          <nav>
+            <ul>
+              <li>
+                <a href="#page" class="menu_button">Home</a>
+              </li>
+              <li>
+                <a href="#creas" class="menu_button">Creations</a>
+              </li>
+              <li>
+                <a href="#experiences" class="menu_button">Experience</a>
+              </li>
+              <li>
+                <a class="toggle_contact menu_button">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="intro">
+      <div class="left-flex">
+        <div class="left-content">
+          <img src="./public/img/bonjour.png" class="bonjour" alt="Bonjour !"/>
+          <p>
+            My name is <b>Sylvain Depardieu</b>.
+          </p>
+          <p>
+            I am <b>Web developer</b>, with interests in <b>hardware</b> & <b>design</b>.
+          </p>
+        </div>
+      </div>
+      <div class="right-flex">
+        <div class="right-content">
+          <p>
+            <b>It's better when it's&nbsp;</b>
+          </p>
+          <div id="word-list">
+            <ul id="list-items">
+              <li>clean</li>
+              <li>light</li>
+              <li>readable</li>
+              <li>structured</li>
+              <li>inspired</li>
+              <li>efficient</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="crooked-top">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="100 30, 0 30, 100 0"></polygon>
+        </svg>
+      </div>
+      <div class="wrapper slider-wrapper">
+        <div class="skill-block">
+          <div class="img-wrapper">
+            <img class="main-img-skill" src="./public/img/skills-img-dev.png"/>
+          </div>
+          <div class="text-wrapper">
+            <h2>Web Development</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur ligula elit, eu feugiat ipsum cursus in. Integer vulputate, ante et euismod vehicula, arcu odio hendrerit libero, sed tristique massa lorem at nisl. Quisque luctus blandit massa vel ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            </p>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="img-wrapper">
+            <img class="main-img-skill" src="./public/img/skills-img-design.png"/>
+          </div>
+          <div class="text-wrapper">
+            <h2>(Responsive -) Design</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur ligula elit, eu feugiat ipsum cursus in. Integer vulputate, ante et euismod vehicula, arcu odio hendrerit libero, sed tristique massa lorem at nisl. Quisque luctus blandit massa vel ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="cta-wrapper wrapper">
+        <a><span class="cta-text">My Creations</span></a>
+      </div>
+      <div id="creas" class="crooked-bottom">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="0 0, 0 30, 100 0"></polygon>
+        </svg>
+      </div>
+    </section>
+
+    <section id="creations">
+      <div class="wrapper">
+        <h2>My Creations</h2>
+        <p>
+          Here is a sample of some of my past creations, professional and/or personal
+        </p>
+        <ul class="portfolio-commands">
+          <li>
+            <a class="active" id="toggle_all">All</a>
+          </li>
+          <li>
+            <a id="toggle_dev">Development</a>
+          </li>
+          <li>
+            <a id="toggle_seo">SEO</a>
+          </li>
+          <li>
+            <a id="toggle_content">Content</a>
+          </li>
+        </ul>
+        <div class="gallery-wrapper">
+          {% for work in works %}
+          <a href="google.fr" class="all {% for c in work.categories %}{{ c }} {% endfor %}">
+            <figure>
+              <div class="gallery-picture-holder">
+                <img src="./public/img/{{ work.picture }}"/>
+              </div>
+              <figcaption>
+                <h3>{{ work.name}}</h3>
+                <p>
+                  {% for skill in work.applied_skill %}{{ skill }}{% if not loop.last %},{% endif %}
+                  {% endfor %}
+                </p>
+              </figcaption>
+            </figure>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="cta-wrapper wrapper">
+          <a><span class="cta-text">My Experiences</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume">
+      <div class="inside-crooked-top">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="100 30, 0 0, 100 0"></polygon>
+        </svg>
+      </div>
+      <div class="wrapper">
+        <p>
+          Want to see more? Have a look at my <b>resume</b>.
+        </p>
+        <div class="cta-wrapper wrapper">
+          <a target="_blank" href="./public/misc/Resume - Sylvain Depardieu.pdf"><span class="cta-text">Download CV</span></a>
+        </div>
+      </div>
+      <div class="inside-crooked-bottom">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="100 30, 0 30, 100 0"></polygon>
+        </svg>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <div class="wrapper">
+        <h2>Experiences</h2>
+        <div class="experience-slider">
+            {% for slide in slides %}
+            <div class="experience-item">
+            <h3>{{ slide.timespan }}</h3>
+            <div class="experience-title">
+              <h4>{{ slide.position }}</h4>
+              <span class="experience-location">at <b>{{ slide.company }}</b></span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-hero">
+                <img src="public/img/{{ slide.image }}"/>
+                <p>{{ slide.city }}, {{ slide.country }}</p>
+              </div>
+              <div class="experience-text">
+                <ul>
+                  {% for task in slide.tasks %}
+                    <li>{{ task|raw }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="crooked-bottom">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="0 0, 0 30, 100 0"></polygon>
+        </svg>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="left-flex">
+        <div class="left-content">
+          <h2>Technologies</h2>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Javascript ES6</li>
+            <li>Bootstrap</li>
+            <li>PHP</li>
+            <li>Sass</li>
+            <li>Less</li>
+            <li>Git</li>
+          </ul>
+          <h2>Ongoing trainings</h2>
+          <ul>
+            <li>React</li>
+            <li>AngularJS</li>
+            <li>Node.js</li>
+            <li>MongoDB</li>
+            <li>Symfony</li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-flex">
+        <div class="right-content">
+          <h2>Skills</h2>
+          <ul>
+            <li>Front-End Development</li>
+            <li>Responsive Design</li>
+            <li>MVC architecture</li>
+            <li>SEO-oriented</li>
+          </ul>
+          <h2>Tools</h2>
+          <ul>
+            <li>Adobe Suite</li>
+            <li>PHP Storm</li>
+            <li>Sketch</li>
+            <li>VirtualBox</li>
+          </ul>
+          <h2>Spirit</h2>
+          <p>
+            Dynamic, curious and always exciting by learning something new, I enjoy what I do.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ilike">
+      <div class="crooked-top">
+        <svg id="svg-top-right" viewBox="0 0 100 30" preserveAspectRatio="none" width="100%" height="100px">
+          <polygon points="100 30, 0 30, 100 0"></polygon>
+        </svg>
+      </div>
+      <div class="wrapper">
+        <p class="ilike-text">I like
+          <span
+             class="txt-rotate"
+             data-period="2000"
+             data-rotate='[ "to play bagpipes.", "rugby.", "video games.", "travelling.", "learning new languages." ]'></span>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="left-flex">
+        <div class="gutter-shadow"></div>
+        <div class="left-content">
+          <div>
+            <span>Sitemap</span>
+            <ul>
+              <li><i class="far fa-smile"></i>Home</li>
+              <li><a href="#creas"><i class="fas fa-code"></i>Creations</a></li>
+              <li><a href="#experiences"><i class="fas fa-suitcase"></i>Experiences</a></li>
+              <li><a href="#expertise"><i class="fas fa-coffee"></i>On-site</a></li>
+            </ul>
+          </div>
+          <div>
+            <span>Get in touch</span>
+            <ul>
+              <li><a target="_blank" href="https://www.xing.com/profile/Sylvain_Depardieu/cv"><i class="fab fa-xing"></i>Xing</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/sylvain-depardieu-5909b6b8/"><i class="fab fa-linkedin-in"></i>Linkedin</a></li>
+              <li class="toggle_contact"><i class="far fa-envelope"></i>Mail</li>
+              <li><a target="_blank" href="https://github.com/SylvainDep"><i class="fas fa-code-branch"></i>GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="right-flex">
+        <div class="gutter"></div>
+        <div class="right-content">
+          <span>About</span>
+          <p>Enthusiastic and curious as a web developper can be, I love my job.</p>
+          <p>I am interested in all topics related to my field, from design to developpement. I regularly stay tuned for news about web technologies, design and constant evolutions.</p>
+        </div>
+      </div>
+      <div id="mask" class="hidden"></div>
+      <div id="contactbox" class="hidden">
+        <div class="wrapper">
+          <div class="toggle_contact cross-holder">
+            <div class="cross-gutter"></div>
+            <div class="cross"></div>
+          </div>
+          <p class="footer-title">M'envoyer un email</p>
+          <form id="formulaire" method="post" action="../functions/mail.php">
+            <input type="text" id="nom" placeholder="Votre nom" name="nom" required="">
+            <input class="second" type="email" id="email" placeholder="Votre e-mail" name="email" required="">
+            <textarea id="message" placeholder="Votre message" name="message"></textarea>
+            <div class="cta-wrapper wrapper">
+              <a><span class="cta-text" id="sendMail">Send</span></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <div class="subFooter">
+      <span>© Sylvain Depardieu 2019  // Web developer  //  <a href="mentions.php">Terms</a></span>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.slider-wrapper').slick({
+          infinite: true,
+          dots: true,
+          prevArrow: '<a aria-label="Précédent" role="button" class="slick-arrow slick-prev"></a>',
+          nextArrow: '<a aria-label="Suivant" role="button" class="slick-arrow slick-next"></a>',
+          adaptiveHeight: true
+        });
+        $('.experience-slider').slick({
+          infinite: false,
+          dots: true,
+          prevArrow: '<a aria-label="Précédent" role="button" class="slick-arrow slick-prev"></a>',
+          nextArrow: '<a aria-label="Suivant" role="button" class="slick-arrow slick-next"></a>',
+          adaptiveHeight: true
+        });
+      });
+    </script>
+    <script type="text/javascript" src="./public/js/toggle_contact.js"></script>
+    <script type="text/javascript" src="./public/js/toggle_menu.js"></script>
+    <script type="text/javascript" src="./public/js/scripting.js"></script>
+    <script type="text/javascript" src="./public/js/filterWorkGallery.js"></script>
+  </body>
+</html>
